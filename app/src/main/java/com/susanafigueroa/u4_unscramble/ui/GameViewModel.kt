@@ -19,4 +19,8 @@ class GameViewModel : ViewModel() {
     // Cada vez que el estado uiState cambia, la vista se actualiza automáticamente.
     val uiState: StateFlow<GameUiState> = _uiState.asStateFlow()
 
+    // Para guardar la palabra desordenada actual.
+    // lateinit = variable que no se inicializa en el momento de su declaración sinó luego
+    private lateinit var currentWord: String
+
 }
