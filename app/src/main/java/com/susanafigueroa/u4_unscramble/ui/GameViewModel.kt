@@ -1,10 +1,14 @@
 package com.susanafigueroa.u4_unscramble.ui
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.susanafigueroa.u4_unscramble.data.allWords
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
 class GameViewModel : ViewModel() {
 
@@ -26,6 +30,9 @@ class GameViewModel : ViewModel() {
 
     // Conjunto mutable para almacenar las palabras usadas en el juego.
     private var usedWords: MutableSet<String> = mutableSetOf()
+
+    var userGuess by mutableStateOf("")
+        private set
 
     // init method
     init {
@@ -58,6 +65,10 @@ class GameViewModel : ViewModel() {
     fun resetGame() {
         usedWords.clear()
         _uiState.value = GameUiState(currentScrambledWord = pickRandomWordAndShuffle())
+    }
+
+    fun updateUserGuess(guessedWord: String) {
+        userGuess = guessedWord
     }
 
 }
