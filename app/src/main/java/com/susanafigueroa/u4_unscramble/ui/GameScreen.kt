@@ -140,15 +140,6 @@ fun GameLayout(
         modifier = modifier,
         elevation = CardDefaults.cardElevation(defaultElevation = 5.dp)
     ) {
-
-        // Show currentScrambledWord
-        Text(
-            text = currentScrambledWord,
-            fontSize = 45.sp,
-            modifier = modifier
-                .align(Alignment.CenterHorizontally)
-        )
-
         Column(
             verticalArrangement = Arrangement.spacedBy(mediumPadding),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -165,7 +156,9 @@ fun GameLayout(
                 color = colorScheme.onPrimary
             )
             Text(
-                text = "scrambleun",
+                // Show currentScrambledWord
+                text = currentScrambledWord,
+                fontSize = 45.sp,
                 style = typography.displayMedium
             )
             Text(
