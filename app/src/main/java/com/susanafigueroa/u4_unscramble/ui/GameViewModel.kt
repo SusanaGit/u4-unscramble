@@ -1,6 +1,7 @@
 package com.susanafigueroa.u4_unscramble.ui
 
 import androidx.lifecycle.ViewModel
+import com.susanafigueroa.u4_unscramble.data.allWords
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
