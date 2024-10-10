@@ -50,6 +50,8 @@ android {
 }
 
 dependencies {
+    // Import the Compose BOM
+    implementation (platform("androidx.compose:compose-bom:2023.06.01"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
