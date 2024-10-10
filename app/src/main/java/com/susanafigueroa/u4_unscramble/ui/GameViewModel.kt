@@ -23,4 +23,7 @@ class GameViewModel : ViewModel() {
     // lateinit = variable que no se inicializa en el momento de su declaración sinó luego
     private lateinit var currentWord: String
 
+    // Conjunto mutable para almacenar las palabras usadas en el juego.
+    private var usedWords: MutableSet<String> = mutableSetOf()
+
 }
