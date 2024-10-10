@@ -48,4 +48,10 @@ class GameViewModel : ViewModel() {
         return String(tempWord)
     }
 
+    // Inicializa el juego. Para iniciar y reiniciar el juego.
+    fun resetGame() {
+        usedWords.clear()
+        _uiState.value = GameUiState(currentScrambledWord = pickRandomWordAndShuffle())
+    }
+
 }
