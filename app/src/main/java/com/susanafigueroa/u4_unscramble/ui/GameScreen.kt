@@ -54,6 +54,7 @@ fun GameScreen(
     // When a change is detected, Compose automatically triggers a recomposition of any
     // composable functions that read or use gameUiState. The UI elements (composables) are
     // redrawn or refreshed when the underlying state or data changes.
+    // gameUiState contains the current state of the UI.
     val gameUiState by gameViewModel.uiState.collectAsState()
 
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
@@ -73,6 +74,10 @@ fun GameScreen(
             style = typography.titleLarge,
         )
         GameLayout(
+            // Paso el valor actual de currentScrambledWord para que GameLayout
+            // pueda usar esta palabra.
+            currentScrambledWord = gameUiState.currentScrambledWord,
+
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
@@ -125,7 +130,10 @@ fun GameStatus(score: Int, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun GameLayout(modifier: Modifier = Modifier) {
+fun GameLayout(
+    currentScrambledWord: String,
+    modifier: Modifier = Modifier
+) {
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
 
     Card(
