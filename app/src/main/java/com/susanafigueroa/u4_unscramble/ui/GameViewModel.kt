@@ -36,4 +36,16 @@ class GameViewModel : ViewModel() {
             return shuffleCurrentWord(currentWord)
         }
     }
+
+    // Desordenar la palabra actual
+    private fun shuffleCurrentWord(word: String): String {
+        val tempWord = word.toCharArray()
+        // Scramble the word
+        tempWord.shuffle()
+        while (String(tempWord).equals(word)) {
+            tempWord.shuffle()
+        }
+        return String(tempWord)
+    }
+
 }
