@@ -26,6 +26,11 @@ class GameViewModel : ViewModel() {
     // Conjunto mutable para almacenar las palabras usadas en el juego.
     private var usedWords: MutableSet<String> = mutableSetOf()
 
+    // init method
+    init {
+        resetGame()
+    }
+
     // Elegir palabra aleatoria de la lista y desordenarla
     private fun pickRandomWordAndShuffle(): String {
         currentWord = allWords.random()
