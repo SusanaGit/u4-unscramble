@@ -26,6 +26,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -46,6 +48,14 @@ fun GameScreen(
     // Paso la instancia de GameViewModel a la UI (GameScreen())
     gameViewModel: GameViewModel = viewModel()
 ) {
+
+    // When you use collectAsState(), it subscribes to the flow of data from uiState and listens for
+    // any changes.
+    // When a change is detected, Compose automatically triggers a recomposition of any
+    // composable functions that read or use gameUiState. The UI elements (composables) are
+    // redrawn or refreshed when the underlying state or data changes.
+    val gameUiState by gameViewModel.uiState.collectAsState()
+
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
 
     Column(
